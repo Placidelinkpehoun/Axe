@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         if (moveInput.magnitude < 0.1f)
             moveInput = Vector2.zero;
+            Debug.Log(moveInput.ToString());
 
         _input = new Vector3(moveInput.x, 0f, moveInput.y);
     }
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
         var rot = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+        Debug.Log("Look est appelé");
     }
 
     private void Move()
@@ -48,5 +50,6 @@ public class PlayerController : MonoBehaviour
         _rb.MovePosition(
             _rb.position + transform.forward * _speed * Time.fixedDeltaTime
         );
+        Debug.Log("Move est appelé");
     }
 }
