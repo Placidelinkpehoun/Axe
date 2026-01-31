@@ -7,6 +7,8 @@ public class WeaponSlot : MonoBehaviour
 
     void Start()
     {
+        transform.localScale = weaponPrefab.transform.localScale;
+        transform.rotation = weaponPrefab.transform.rotation;
         EquipWeapon();
     }
 
